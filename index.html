@@ -15,39 +15,38 @@
     <nav>Password Generator</nav>
 
     <div class="content">
-        <h2>Generate a Password</h2>
+        <h2>Generate a secure Password</h2>
         <br>
-        <div class="result-container">
-            <span id="result"></span>
-        </div>
         <div class="result-container-2">
             <input id="result2" type="text">
+            <button class="copy-button" id="clipboard"></button>
+            <button class="new-button" id="generate"></button>
         </div>
         <br>
         <div class="settings">
             <div class="setting">
-                <input class="inputbox" type="number" id="length" min='4' max='128' value='12' />
+                <input type="number" id="length" min='4' max='128' value='12' />
                 <label>Length</label>
             </div>
             <div class="setting">
-                <input class="checkbox" type="checkbox" id="uppercase" checked />
+                <input type="checkbox" id="uppercase" checked />
                 <label>Uppercase</label>
             </div>
             <div class="setting">
-                <input class="checkbox" type="checkbox" id="lowercase" checked />
+                <input type="checkbox" id="lowercase" checked />
                 <label>Lowercase</label>
             </div>
             <div class="setting">
-                <input class="checkbox" type="checkbox" id="numbers" checked />
+                <input type="checkbox" id="numbers" checked />
                 <label>Numbers</label>
             </div>
             <div class="setting">
-                <input class="checkbox" type="checkbox" id="symbols" checked />
+                <input type="checkbox" id="symbols" checked />
                 <label>Symbols</label>
             </div>
-            <button onclick id="generate">Generate Password</button>
-            <button onclick id="clipboard">Copy to Clipboard</button>
         </div>
+        <br>
+        <p id="copied">Copied</p>
     </div>
 
     <script src="script.js"></script>

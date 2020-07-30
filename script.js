@@ -1,5 +1,5 @@
 //DOMs instead of VARs
-const resultEl = document.getElementById('result');
+const resultEl = document.getElementById('result2');
 const lengthEl = document.getElementById('length');
 const uppercaseEl = document.getElementById('uppercase');
 const lowercaseEl = document.getElementById('lowercase');
@@ -7,6 +7,7 @@ const numbersEl = document.getElementById('numbers');
 const symbolsEl = document.getElementById('symbols');
 const generateEl = document.getElementById('generate');
 const clipboardEl = document.getElementById('clipboard');
+const copiedElement = document.getElementById('copied');
 
 //calls on the function that creates random letters, numbers and symbols
 const randomFunc = {
@@ -14,20 +15,44 @@ const randomFunc = {
     upper: getRandomUpper,
     number: getRandomNumber,
     symbol: getRandomSymbol
-}
+};
+
+lengthEl.addEventListener('change', () => {
+    autoGeneratePassword();
+});
+
+uppercaseEl.addEventListener('change', () => {
+    autoGeneratePassword();
+});
+
+lowercaseEl.addEventListener('change', () => {
+    autoGeneratePassword();
+});
+
+numbersEl.addEventListener('change', () => {
+    autoGeneratePassword();
+});
+
+symbolsEl.addEventListener('change', () => {
+    autoGeneratePassword();
+});
 
 //checks to make sure boxes are checked
-generate.addEventListener('click', () => {
+generateEl.addEventListener('click', () => {
+    autoGeneratePassword();
+});
+
+//
+function autoGeneratePassword() {
     const length = +lengthEl.value;
     const hasLower = lowercaseEl.checked;
     const hasUpper = uppercaseEl.checked;
     const hasNumber = numbersEl.checked;
     const hasSymbol = symbolsEl.checked;
 
-    resultEl.innerText = generatePassword(hasLower, hasUpper, hasNumber, hasSymbol, length);
-});
+    resultEl.value = generatePassword(hasLower, hasUpper, hasNumber, hasSymbol, length);
+}
 
-//
 function generatePassword(lower, upper, number, symbol, length) {
     let generatedPassword = '';
     const typesCount = lower + upper + number + symbol;
@@ -67,13 +92,13 @@ function getRandomNumber() {
 }
 
 function getRandomSymbol() {
-    const symbols = "!@#$%^&*()";
+    const symbols = "!@#$%^&*()`'-+/";
     return symbols[Math.floor(Math.random() * symbols.length)];
 }
 //copying to clipboard
-clipboard.addEventListener('click', () => {
+clipboardEl.addEventListener('click', () => {
     const textarea = document.createElement('textarea');
-    const password = resultEl.innerText;
+    const password = resultEl.value;
 
     if (!password) { return; }
 
@@ -82,5 +107,5 @@ clipboard.addEventListener('click', () => {
     textarea.select();
     document.execCommand('copy');
     textarea.remove();
-    alert('Password copied to clipboard');
+    copiedElement.style('display: block');
 });
