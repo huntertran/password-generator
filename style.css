@@ -25,14 +25,6 @@ html {
   max-width: 720px;
 }
 
-nav {
-  padding: 8px;
-  text-align: center;
-  font-size: 3rem;
-  text-transform: uppercase;
-  color: #d22d27;
-}
-
 .result-container {
   display: -webkit-box;
   display: -ms-flexbox;
