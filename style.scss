@@ -66,10 +66,6 @@ input[type="checkbox"] {
     height: 24px;
 }
 
-p {
-    display: none;
-}
-
 button {
     background-size: 2rem;
     width: 55px;
@@ -84,5 +80,14 @@ button {
     }
     &.new-button {
         background-image: url(./image/new.svg);
+    }
+}
+
+#copied {
+    opacity: 0;
+    transition: opacity 0.1s;
+    &.show {
+        opacity: 1;
+        transition: opacity 0.1s;
     }
 }

@@ -20,12 +20,9 @@ var passwordGenerator = (function () {
         symbol: getRandomSymbol
     };
 
-    function assignEvents() {
-        // lengthEl.addEventListener('change', (event) => {
-        //     lengthNumberElement.value = event.target.value;
-        //     autoGeneratePassword();
-        // });
+    const maxLength = 128;
 
+    function assignEvents() {
         lengthEl.addEventListener('input', (event) => {
             lengthNumberElement.value = event.target.value;
             autoGeneratePassword();
@@ -34,6 +31,12 @@ var passwordGenerator = (function () {
         lengthNumberElement.addEventListener('change', (event) => {
             lengthEl.value = event.target.value;
             autoGeneratePassword();
+        });
+
+        lengthNumberElement.addEventListener('keydown', (event) => {
+            if (event.target.value > maxLength) {
+                event.target.value = maxLength;
+            }
         });
 
         uppercaseEl.addEventListener('change', () => {
@@ -54,21 +57,34 @@ var passwordGenerator = (function () {
 
         generateEl.addEventListener('click', () => {
             autoGeneratePassword();
+            hideCopiedNotification();
         });
 
         clipboardEl.addEventListener('click', () => {
             const textarea = document.createElement('textarea');
             const password = resultEl.value;
-    
+
             if (!password) { return; }
-    
+
             textarea.value = password;
             document.body.appendChild(textarea);
             textarea.select();
             document.execCommand('copy');
             textarea.remove();
-            copiedElement.style('display: block');
+            showCopiedNotification();
         });
+    }
+
+    function hideCopiedNotification() {
+        if (copiedElement.classList.contains("show")) {
+            copiedElement.classList.remove("show");
+        }
+    }
+
+    function showCopiedNotification() {
+        hideCopiedNotification();
+        copiedElement.classList.add("show");
+        setTimeout(hideCopiedNotification, 1000);
     }
 
     function autoGeneratePassword() {
