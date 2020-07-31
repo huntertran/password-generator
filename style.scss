@@ -95,3 +95,32 @@ button {
         transition: opacity 0.1s;
     }
 }
+
+.hover-button {
+    transition: all 0.5s;
+    cursor: pointer;
+    color: $primary-color;
+    span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+        &:after {
+            content: "\00bb";
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -10px;
+            transition: 0.5s;
+        }
+    }
+    &:hover {
+        span {
+            padding-right: 16px;
+            &:after {
+                opacity: 1;
+                right: 0;
+            }
+        }
+    }
+}

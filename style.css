@@ -114,4 +114,38 @@ button.new-button {
   -webkit-transition: opacity 0.1s;
   transition: opacity 0.1s;
 }
+
+.hover-button {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  cursor: pointer;
+  color: #d22d27;
+}
+
+.hover-button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.hover-button span:after {
+  content: "\00bb";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -10px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.hover-button:hover span {
+  padding-right: 16px;
+}
+
+.hover-button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
 /*# sourceMappingURL=style.css.map */
