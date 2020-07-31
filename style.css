@@ -1,16 +1,19 @@
-body,
-html {
-  height: 100%;
-  display: -ms-grid;
-  display: grid;
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
-nav {
-  padding: 8px;
-  text-align: center;
-  font-size: 3rem;
-  text-transform: uppercase;
-  color: #d22d27;
+html {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .content {
@@ -20,7 +23,14 @@ nav {
   border: 2px solid #d22d27;
   text-align: center;
   max-width: 720px;
-  margin: auto;
+}
+
+nav {
+  padding: 8px;
+  text-align: center;
+  font-size: 3rem;
+  text-transform: uppercase;
+  color: #d22d27;
 }
 
 .result-container {
