@@ -1,37 +1,29 @@
+body,
 html {
-  background: black;
-  background-size: cover;
-}
-
-body {
-  background-color: transparent;
+  height: 100%;
+  display: -ms-grid;
+  display: grid;
 }
 
 nav {
-  border: 2px solid #321f74;
-  color: white;
   padding: 8px;
+  text-align: center;
+  font-size: 3rem;
+  text-transform: uppercase;
+  color: #d22d27;
 }
 
 .content {
-  margin-top: 48px;
-  background-color: #2d2f38;
+  background-color: #f9fbfd;
+  color: #d22d27;
   padding: 48px;
-  border: 2px solid #321f74;
+  border: 2px solid #d22d27;
   text-align: center;
+  max-width: 720px;
+  margin: auto;
 }
 
 .result-container {
-  width: 100%;
-  height: 100px;
-  border-radius: 12px;
-  border: 3px solid white;
-  background-color: black;
-  text-align: center;
-  color: ghostwhite;
-}
-
-.result-container-2 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -43,21 +35,29 @@ nav {
           align-items: center;
 }
 
-#result2 {
+#result {
   width: 80%;
   height: auto;
   font-size: 2rem;
   padding: 8px;
 }
 
-h2 {
-  color: ghostwhite;
-}
-
 .setting {
   padding: 5px;
   text-align: left;
-  color: white;
+}
+
+.setting.checkbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.setting.checkbox label {
+  margin-left: 4px;
 }
 
 #length {
@@ -75,7 +75,6 @@ input[type="checkbox"] {
 }
 
 p {
-  color: white;
   display: none;
 }
 
@@ -85,7 +84,7 @@ button {
   height: 55px;
   display: inline-block;
   border: 0;
-  background-color: #fff;
+  background-color: transparent;
   background-position: 50%;
   background-repeat: no-repeat;
 }
