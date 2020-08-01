@@ -1,18 +1,16 @@
 var passwordGenerator = (function () {
     'use strict'
-    //DOMs instead of VARs
-    const resultEl = document.getElementById('result');
-    const lengthEl = document.getElementById('length');
+    const resultElement = document.getElementById('result');
+    const lengthElement = document.getElementById('length');
     const lengthNumberElement = document.getElementById('length-number');
-    const uppercaseEl = document.getElementById('uppercase');
-    const lowercaseEl = document.getElementById('lowercase');
-    const numbersEl = document.getElementById('numbers');
-    const symbolsEl = document.getElementById('symbols');
-    const generateEl = document.getElementById('generate');
-    const clipboardEl = document.getElementById('clipboard');
+    const uppercaseElement = document.getElementById('uppercase');
+    const lowercaseElement = document.getElementById('lowercase');
+    const numbersElement = document.getElementById('numbers');
+    const symbolsElement = document.getElementById('symbols');
+    const generateElement = document.getElementById('generate');
+    const clipboardElement = document.getElementById('clipboard');
     const copiedElement = document.getElementById('copied');
 
-    //calls on the function that creates random letters, numbers and symbols
     const randomFunc = {
         lower: getRandomLower,
         upper: getRandomUpper,
@@ -23,13 +21,13 @@ var passwordGenerator = (function () {
     const maxLength = 128;
 
     function assignEvents() {
-        lengthEl.addEventListener('input', (event) => {
+        lengthElement.addEventListener('input', (event) => {
             lengthNumberElement.value = event.target.value;
             autoGeneratePassword();
         });
 
         lengthNumberElement.addEventListener('change', (event) => {
-            lengthEl.value = event.target.value;
+            lengthElement.value = event.target.value;
             autoGeneratePassword();
         });
 
@@ -39,30 +37,30 @@ var passwordGenerator = (function () {
             }
         });
 
-        uppercaseEl.addEventListener('change', () => {
+        uppercaseElement.addEventListener('change', () => {
             autoGeneratePassword();
         });
 
-        lowercaseEl.addEventListener('change', () => {
+        lowercaseElement.addEventListener('change', () => {
             autoGeneratePassword();
         });
 
-        numbersEl.addEventListener('change', () => {
+        numbersElement.addEventListener('change', () => {
             autoGeneratePassword();
         });
 
-        symbolsEl.addEventListener('change', () => {
+        symbolsElement.addEventListener('change', () => {
             autoGeneratePassword();
         });
 
-        generateEl.addEventListener('click', () => {
+        generateElement.addEventListener('click', () => {
             autoGeneratePassword();
             hideCopiedNotification();
         });
 
-        clipboardEl.addEventListener('click', () => {
+        clipboardElement.addEventListener('click', () => {
             const textarea = document.createElement('textarea');
-            const password = resultEl.value;
+            const password = resultElement.value;
 
             if (!password) { return; }
 
@@ -88,13 +86,13 @@ var passwordGenerator = (function () {
     }
 
     function autoGeneratePassword() {
-        const length = +lengthEl.value;
-        const hasLower = lowercaseEl.checked;
-        const hasUpper = uppercaseEl.checked;
-        const hasNumber = numbersEl.checked;
-        const hasSymbol = symbolsEl.checked;
+        const length = +lengthElement.value;
+        const hasLower = lowercaseElement.checked;
+        const hasUpper = uppercaseElement.checked;
+        const hasNumber = numbersElement.checked;
+        const hasSymbol = symbolsElement.checked;
 
-        resultEl.value = generatePassword(hasLower, hasUpper, hasNumber, hasSymbol, length);
+        resultElement.value = generatePassword(hasLower, hasUpper, hasNumber, hasSymbol, length);
     }
 
     function generatePassword(lower, upper, number, symbol, length) {
@@ -102,9 +100,8 @@ var passwordGenerator = (function () {
         const typesCount = lower + upper + number + symbol;
         const typesArr = [{ lower }, { upper }, { number }, { symbol }].filter(item => Object.values(item)[0]);
 
-        // no type
         if (typesCount === 0) {
-            return '';
+            return 'no type selected';
         }
 
         // makes a loop
@@ -118,7 +115,6 @@ var passwordGenerator = (function () {
         return generatedPassword.slice(0, length);
     }
 
-    //creates random letters, numbers and symbols
     function getRandomLower() {
         return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
     }
@@ -151,7 +147,7 @@ var passwordGenerator = (function () {
 
     return {
         init: function () {
-            lengthNumberElement.value = lengthEl.value;
+            lengthNumberElement.value = lengthElement.value;
             assignEvents();
             autoGeneratePassword();
             checkServiceWorker();
