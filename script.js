@@ -136,11 +136,25 @@ var passwordGenerator = (function () {
         return symbols[Math.floor(Math.random() * symbols.length)];
     }
 
+    function checkServiceWorker() {
+        if ('serviceWorker' in navigator) {
+            console.log('CLIENT: service worker registration in progress.');
+            navigator.serviceWorker.register('service-worker.js').then(function () {
+                console.log('CLIENT: service worker registration complete. The APP now can work offline');
+            }, function () {
+                console.log('CLIENT: service worker registration failure.');
+            });
+        } else {
+            console.log('CLIENT: service worker is not supported.');
+        }
+    }
+
     return {
         init: function () {
             lengthNumberElement.value = lengthEl.value;
             assignEvents();
             autoGeneratePassword();
+            checkServiceWorker();
         }
     }
 })();
