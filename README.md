@@ -43,9 +43,13 @@ Report for lighthouse can be found [here](https://lighthouse-dot-webdotdevsite.a
 The low score for accessibility is because of some unnecessary restriction (in this app context) set by Google.
 
 ![lighthouse result](https://i.imgur.com/Rtjonu1.png)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fhuntertran%2Fpassword-generator.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fhuntertran%2Fpassword-generator?ref=badge_shield)
 
 Report for Google Page Speed can be found [here](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fhuntertran.github.io%2Fpassword-generator%2F&tab=mobile)
 
 ![pagespeed result](https://i.imgur.com/sZLubom.png)
 
 The App was set with `meta` tags properly to be shared on Facebook, Google and Twitter. You can check the `index.html` file to see the tags
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fhuntertran%2Fpassword-generator.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fhuntertran%2Fpassword-generator?ref=badge_large)
