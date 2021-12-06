@@ -62,12 +62,21 @@ var passwordGenerator = (function () {
             const textarea = document.createElement('textarea');
             const password = resultElement.value;
 
-            if (!password) { return; }
+            if (!password) {
+                return;
+            }
 
             textarea.value = password;
             document.body.appendChild(textarea);
             textarea.select();
-            document.execCommand('copy');
+
+            if (!navigator.clipboard){
+                document.execCommand('copy');
+            } else{
+                navigator.clipboard.writeText(password);
+            }
+
+            // document.execCommand('copy');
             textarea.remove();
             showCopiedNotification();
         });

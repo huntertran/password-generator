@@ -34,6 +34,8 @@ html {
     height: auto;
     font-size: 2rem;
     padding: 8px;
+    resize: vertical;
+    min-height: 55px;
 }
 
 .setting {
@@ -62,7 +64,7 @@ input[type="checkbox"] {
     height: 24px;
 }
 
-button {
+.icon-button {
     background-size: 2rem;
     width: 55px;
     height: 55px;

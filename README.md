@@ -9,29 +9,30 @@ Anonymous password generator with pure HTML, CSS and JavaScript. No framework, n
 - [2. Icons](#2-icons)
 - [3. Work Offline](#3-work-offline)
 - [4. Testing and SEO](#4-testing-and-seo)
+    - [4.1. License](#41-license)
 
 <!-- /TOC -->
 
 # 1. Pure HTML, CSS and JavaScript
 <a id="markdown-pure-html%2C-css-and-javascript" name="pure-html%2C-css-and-javascript"></a>
 
-The HTML use simple `input` tags with properties like `min`, `max`. Some other tags was used. No custom tags.
+The HTML uses simple `input` tags with properties like `min`, `max`. Some other tags were used. No custom tags.
 
-For CSS, the SCSS was used, and then compiled to css. SCSS add some nice feature like parent and child properties, reusable global variables and prefix for multiple browser support. The compiled CSS was not minified, as the file itself is relatively small.
+For CSS, the SCSS was used, and then compiled to CSS. SCSS add some nice feature like parent and child properties, reusable global variables, and prefix for multiple browser support. The compiled CSS was not minified, as the file itself is relatively small.
 
 JavaScript use module pattern, except for `service-worker.js` file.
 
 # 2. Icons
 <a id="markdown-icons" name="icons"></a>
 
-The icon used in copy and refresh button is svg to reduce the size of the resources. Another option is icon purely written in CSS
+The icon used in the copy and refresh button is SVG to reduce the size of the resources. Another option is icon purely written in CSS
 
-However, favicon cannot be an svg file, so the favicon is 16x16 pixels, with 8 bit colors (256 colors), and already compressed.
+However, the favicon cannot be an SVG file, so the favicon is 16x16 pixels, with 8-bit colors (256 colors), and is already compressed.
 
 # 3. Work Offline
 <a id="markdown-work-offline" name="work-offline"></a>
 
-This app implement a service worker to cache all the necessary resources in `service-worker.js`. The code of this file was copied from [here](https://github.com/chriscoyier/Simple-Offline-Site) with MIT license
+This app implements a service worker to cache all the necessary resources in `service-worker.js`. The code of this file was copied from [here](https://github.com/chriscoyier/Simple-Offline-Site) with MIT license
 
 # 4. Testing and SEO
 <a id="markdown-testing-and-seo" name="testing-and-seo"></a>
@@ -49,7 +50,8 @@ Report for Google Page Speed can be found [here](https://developers.google.com/s
 
 ![pagespeed result](https://i.imgur.com/sZLubom.png)
 
-The App was set with `meta` tags properly to be shared on Facebook, Google and Twitter. You can check the `index.html` file to see the tags
+The app was set with `meta` tags properly to be shared on Facebook, Google, and Twitter. You can check the `index.html` file to see the tags
 
 ## License
+<a id="markdown-license" name="license"></a>
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fhuntertran%2Fpassword-generator.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fhuntertran%2Fpassword-generator?ref=badge_large)
